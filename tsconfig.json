@@ -8,8 +8,14 @@
     "jsx": "react",
     "sourceMap": true,
     "noLib": false,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "baseUrl": "./src/"
   },
   "compileOnSave": false,
+  "paths": {
+    "layout": ["./layout/*"],
+    "scenes": ["./scenes/*"],
+    "core": ["./core/*"]
+  },
   "exclude": ["node_modules"]
 }
