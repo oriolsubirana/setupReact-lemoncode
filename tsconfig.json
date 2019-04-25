@@ -15,7 +15,8 @@
   "paths": {
     "layout": ["./layout/*"],
     "scenes": ["./scenes/*"],
-    "core": ["./core/*"]
+    "core": ["./core/*"],
+    "pods": ["./pods/*"]
   },
   "exclude": ["node_modules"]
 }
