@@ -16,7 +16,8 @@
     "layout": ["./layout/*"],
     "scenes": ["./scenes/*"],
     "core": ["./core/*"],
-    "pods": ["./pods/*"]
+    "pods": ["./pods/*"],
+    "common": ["./common/*"]
   },
   "exclude": ["node_modules"]
 }
