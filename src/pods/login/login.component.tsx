@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import { createStyles, WithStyles, withStyles } from "@material-ui/core";
 import { CredentialsVm } from "./login.vm";
 
-const styles = theme => 
+const styles = theme =>
   createStyles({
     formContainer: {
       display: "flex",
@@ -18,47 +18,47 @@ const styles = theme =>
 
 
 interface Props extends WithStyles<typeof styles> {
-  onLogin : () => void,
-  credentials : CredentialsVm,
-  onUpdateCredentials : (name : keyof CredentialsVm, value : any) => void;
+  onLogin: () => void,
+  credentials: CredentialsVm,
+  onUpdateCredentials: (name: keyof CredentialsVm, value: any) => void;
 }
 
 const LoginComponentInner = (props: Props) => {
-  const {classes, onLogin, credentials, onUpdateCredentials} = props;
+  const { classes, onLogin, credentials, onUpdateCredentials } = props;
 
   //change generico le pasamos la funcion de calback 
-  const onTextFieldChange = (fieldName : keyof CredentialsVm) => (e : React.ChangeEvent<HTMLInputElement>) =>
+  const onTextFieldChange = (fieldName: keyof CredentialsVm) => (e: React.ChangeEvent<HTMLInputElement>) =>
     onUpdateCredentials(fieldName, e.target.value);
 
   return (
     <>
-     <Card>
-       <CardHeader title="Login" />
-       <CardContent>
-        <div className={classes.formContainer} >
-          <TextField 
-            label="Name" 
-            margin="normal"
-            value={credentials.login}
-            onChange={onTextFieldChange('login')}
-          />
-          <TextField 
-            label="Password" 
-            type="password" 
-            margin="normal" 
-            value={credentials.password}
-            onChange={onTextFieldChange('password')}
-          />
-          <Button 
-            variant="contained" 
-            color="primary"
-            onClick={onLogin}
+      <Card>
+        <CardHeader title="Login" />
+        <CardContent>
+          <div className={classes.formContainer} >
+            <TextField
+              label="Name"
+              margin="normal"
+              value={credentials.login}
+              onChange={onTextFieldChange('login')}
+            />
+            <TextField
+              label="Password"
+              type="password"
+              margin="normal"
+              value={credentials.password}
+              onChange={onTextFieldChange('password')}
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={onLogin}
             >
-            Login
+              Login
           </Button>
-        </div>
-       </CardContent>
-     </Card>
+          </div>
+        </CardContent>
+      </Card>
     </>
   );
 };

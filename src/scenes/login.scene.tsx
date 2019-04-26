@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { CenteredLayout } from 'layout';
-import {LoginContainer} from 'pods/login';
+import { LoginContainer } from 'pods/login';
 
 export const LoginScene = () => {
-    return (
-        <CenteredLayout>
-          <LoginContainer />
-        </CenteredLayout>
-    )
+  return (
+    <CenteredLayout>
+      <LoginContainer />
+    </CenteredLayout>
+  )
 }

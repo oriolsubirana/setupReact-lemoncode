@@ -3,24 +3,24 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography/Typography";
 
 //sinonimos
-type OnChange = (fieldId : string, value : string) => void;
+type OnChange = (fieldId: string, value: string) => void;
 
 interface Props {
-    name : string;
-    label : string;
-    onChange : (fieldId : string, value : string) => void;
-    value : string;
-    error? : string;
-    type? : string;
+    name: string;
+    label: string;
+    onChange: (fieldId: string, value: string) => void;
+    value: string;
+    error?: string;
+    type?: string;
 }
 
 //funcion curry
-const onTextFieldChange = (fieldId : string, onChange : OnChange) => (e : React.ChangeEvent<HTMLInputElement>) => {
+const onTextFieldChange = (fieldId: string, onChange: OnChange) => (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(fieldId, e.target.value);
 }
 
-export const TextFieldForm : React.StatelessComponent<Props> = (props) => {
-    const {name, label, onChange, value, error, type} = props;
+export const TextFieldForm: React.StatelessComponent<Props> = (props) => {
+    const { name, label, onChange, value, error, type } = props;
 
     return (
         <>
@@ -39,6 +39,6 @@ export const TextFieldForm : React.StatelessComponent<Props> = (props) => {
 }
 
 TextFieldForm.defaultProps = {
-    type : "text",
+    type: "text",
 
 }

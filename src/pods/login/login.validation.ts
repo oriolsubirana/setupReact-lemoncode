@@ -4,10 +4,10 @@ import {
     Validators
 } from 'lc-form-validation';
 
-const loginFormValidationConstraints : ValidationConstraints = {
+const loginFormValidationConstraints: ValidationConstraints = {
     fields: {
-        login: [{validator: Validators.required}],
-        password: [{validator: Validators.required}],
+        login: [{ validator: Validators.required }],
+        password: [{ validator: Validators.required }],
     }
 }
 

@@ -4,13 +4,13 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 
 interface Props {
-  message : string;
-  show : boolean;
-  onClose : () => void;
+  message: string;
+  show: boolean;
+  onClose: () => void;
 }
 
-export const NotificationComponent = (props : Props) => {
-  const {message, show, onClose} = props;
+export const NotificationComponent = (props: Props) => {
+  const { message, show, onClose } = props;
 
   return (
     <Snackbar
@@ -35,5 +35,5 @@ export const NotificationComponent = (props : Props) => {
           <CloseIcon />
         </IconButton>
       ]}
-    />  );
+    />);
 }
