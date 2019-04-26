@@ -4,7 +4,7 @@ import {withRouter, RouteComponentProps} from 'react-router-dom';
 import { routesLinks } from "core";
 import {CredentialsVm, createEmptyLogin} from './login.vm';
 import { validateCredentials } from "./login.api";
-import { NotificationComponent } from "common/components/notification";
+import { NotificationComponent } from "common/components";
 
 interface Props extends RouteComponentProps {
 
@@ -45,7 +45,8 @@ const LoginContainerInner = (props: Props) => {
     <NotificationComponent 
       message="Invalid login or password, type: admin/test"
       show={showLoginFailedMessage}
-      onClose={() => setShowLoginFailedMessage(false)} />
+      onClose={() => setShowLoginFailedMessage(false)} 
+    />
   </>
   );
 };
