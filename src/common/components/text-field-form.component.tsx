@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography/Typography";
 
 //sinonimos
 type OnChange = (fieldId: string, value: string) => void;
+type Margin = 'none' | 'dense' | 'normal';
 
 interface Props {
     name: string;
@@ -12,7 +13,10 @@ interface Props {
     value: string;
     error?: string;
     type?: string;
+    margin?: Margin;
 }
+
+
 
 //funcion curry
 const onTextFieldChange = (fieldId: string, onChange: OnChange) => (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,13 +24,13 @@ const onTextFieldChange = (fieldId: string, onChange: OnChange) => (e: React.Cha
 }
 
 export const TextFieldForm: React.StatelessComponent<Props> = (props) => {
-    const { name, label, onChange, value, error, type } = props;
+    const { name, label, onChange, value, error, type, margin } = props;
 
     return (
         <>
             <TextField
                 label={label}
-                margin="normal"
+                margin={margin}
                 value={value}
                 type={type}
                 onChange={onTextFieldChange(name, onChange)}
