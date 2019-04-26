@@ -1,7 +1,7 @@
 import * as React from "react";
 import { LoginComponent } from "./login.component";
 import { withRouter, RouteComponentProps } from "react-router-dom";
-import { routesLinks } from "core";
+import { routesLinks, sessionContext } from "core";
 import {
   CredentialsVm,
   createEmptyLogin,
@@ -30,6 +30,8 @@ const useFormErrors = () => {
 }
 
 const LoginContainerInner = (props: Props) => {
+  const loginContext = React.useContext(sessionContext);
+
   const [credentials, setCredentials] = React.useState<CredentialsVm>(
     createEmptyLogin()
   );
@@ -58,9 +60,12 @@ const LoginContainerInner = (props: Props) => {
   const doLoginServerRequest = () => {
     validateCredentials(credentials.login, credentials.password).then(
       areValidCredentials => {
-        areValidCredentials
-          ? history.push(routesLinks.hotelCollection)
-          : setShowLoginFailedMessage(true);
+        if (areValidCredentials) {
+          loginContext.updateLogin(credentials.login);
+          history.push(routesLinks.hotelCollection);
+        } else {
+          setShowLoginFailedMessage(true);
+        }
       }
     );
   }
