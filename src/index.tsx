@@ -3,6 +3,8 @@ import * as ReactDOM from 'react-dom';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { LoginScene, HotellCollectionScene } from './scenes';
 import { routerSwitchRoutes, SessionProvider } from 'core';
+import { usePromiseTracker } from "react-promise-tracker";
+import { LoadingIndicator } from 'common/components/loading-indicator.component';
 
 ReactDOM.render(
   <SessionProvider>
@@ -12,6 +14,8 @@ ReactDOM.render(
         <Route path={routerSwitchRoutes.hotelCollection} component={HotellCollectionScene} />
       </Switch>
     </HashRouter>
-  </SessionProvider>,
+    <LoadingIndicator />
+  </SessionProvider>
+  ,
   document.getElementById('root')
 );

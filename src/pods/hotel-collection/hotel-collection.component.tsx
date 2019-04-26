@@ -21,7 +21,7 @@ const HotelCollectionComponentInner = (props: Props) => {
     return (
         <div className={classes.listLayout}>
             {
-                hotelCollection.map(hotel => <HotelCard hotel={hotel} />)
+                hotelCollection.map(hotel => <HotelCard hotel={hotel} key={hotel.id} />)
             }
         </div>
 

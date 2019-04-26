@@ -1,24 +1,33 @@
-
-import * as React from "react"
+import * as React from "react";
 import Card from '@material-ui/core/Card';
 import { HotelEntityVm } from "../hotel-collection.vm";
 import CardHeader from "@material-ui/core/CardHeader/CardHeader";
 import Avatar from "@material-ui/core/Avatar/Avatar";
 import IconButton from "@material-ui/core/IconButton/IconButton";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import EditIcon from '@material-ui/icons/edit';
-import DeleteIcon from '@material-ui/icons/delete';
 import { CardContent, CardMedia, Typography, CardActions } from "@material-ui/core";
+import { withStyles, createStyles, WithStyles } from '@material-ui/core/styles';
+import { Theme } from "@material-ui/core/styles";
 
-interface Props {
+const styles = (theme: Theme) => createStyles({
+    card: {
+        marginTop: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
+        width: '31.25rem'
+    }
+
+})
+
+interface Props extends WithStyles<typeof styles> {
     hotel: HotelEntityVm;
 }
 
-export const HotelCard = (props: Props) => {
-    const { hotel } = props;
+
+const HotelCardInner = (props: Props) => {
+    const { hotel, classes } = props;
 
     return (
-        <Card>
+        <Card className={classes.card}>
             <CardHeader
                 avatar={
                     <Avatar aria-label="rating">
@@ -52,3 +61,5 @@ export const HotelCard = (props: Props) => {
         </Card>
     )
 }
+
+export const HotelCard = withStyles(styles)(HotelCardInner);
