@@ -1,5 +1,20 @@
 import { generatePath } from "react-router";
 
+/*
+interface MyBaseRoutes {
+  login : string;
+  hotelCollection : string;
+}
+
+interface MySwitchRoutes extends MyBaseRoutes {
+  hotelEdit : string;
+}
+
+interface MyLinkRoutes extends MyBaseRoutes {
+  hotelEdit : (id : number) => string;
+}
+*/
+
 interface BaseRoutes {
   login : string;
   hotelCollection : string;

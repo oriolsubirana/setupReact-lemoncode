@@ -19,8 +19,8 @@ const styles = theme =>
 
 
 interface Props extends WithStyles<typeof styles> {
-  onLogin: () => void,
-  credentials: CredentialsVm,
+  onLogin: () => void;
+  credentials: CredentialsVm;
   onUpdateCredentials: (name: keyof CredentialsVm, value: any) => void;
   loginFormErrors: LoginFormErrors;
 }

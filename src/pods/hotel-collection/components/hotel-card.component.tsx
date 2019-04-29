@@ -8,6 +8,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { CardContent, CardMedia, Typography, CardActions } from "@material-ui/core";
 import { withStyles, createStyles, WithStyles } from '@material-ui/core/styles';
 import { Theme } from "@material-ui/core/styles";
+import EditIcon from "@material-ui/icons/edit";
+import DeleteIcon from "@material-ui/icons/delete";
 
 const styles = (theme: Theme) => createStyles({
     card: {
@@ -20,11 +22,12 @@ const styles = (theme: Theme) => createStyles({
 
 interface Props extends WithStyles<typeof styles> {
     hotel: HotelEntityVm;
+    onEdit: (id: string) => void;
 }
 
 
 const HotelCardInner = (props: Props) => {
-    const { hotel, classes } = props;
+    const { hotel, classes, onEdit } = props;
 
     return (
         <Card className={classes.card}>
@@ -58,6 +61,14 @@ const HotelCardInner = (props: Props) => {
                     </Typography>
                 </div>
             </CardContent>
+            <CardActions disableActionSpacing>
+                <IconButton aria-label="Add to favorites" onClick={() => onEdit(hotel.id)}>
+                    <EditIcon />
+                </IconButton>
+                <IconButton aria-label="Share">
+                    <DeleteIcon />
+                </IconButton>
+            </CardActions>
         </Card>
     )
 }

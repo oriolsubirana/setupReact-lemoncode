@@ -5,6 +5,7 @@ import { LoginScene, HotellCollectionScene } from './scenes';
 import { routerSwitchRoutes, SessionProvider } from 'core';
 import { usePromiseTracker } from "react-promise-tracker";
 import { LoadingIndicator } from 'common/components/loading-indicator.component';
+import { HotelEditScene } from 'scenes/hotel-edit.scene';
 
 ReactDOM.render(
   <SessionProvider>
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Switch>
         <Route exact={true} path={routerSwitchRoutes.login} component={LoginScene} />
         <Route path={routerSwitchRoutes.hotelCollection} component={HotellCollectionScene} />
+        <Route path={routerSwitchRoutes.hotelEdit} component={HotelEditScene} />
       </Switch>
     </HashRouter>
     <LoadingIndicator />

@@ -13,15 +13,16 @@ const styles = theme => createStyles({
 
 interface Props extends WithStyles<typeof styles> {
     hotelCollection: HotelEntityVm[];
+    onEdit: (id: string) => void;
 }
 
 const HotelCollectionComponentInner = (props: Props) => {
-    const { hotelCollection, classes } = props;
+    const { hotelCollection, classes, onEdit } = props;
 
     return (
         <div className={classes.listLayout}>
             {
-                hotelCollection.map(hotel => <HotelCard hotel={hotel} key={hotel.id} />)
+                hotelCollection.map(hotel => <HotelCard hotel={hotel} key={hotel.id} onEdit={onEdit} />)
             }
         </div>
 
